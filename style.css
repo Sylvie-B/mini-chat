@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: sans-serif;
+}
+
+body {
+    width: 100%;
+}
+
+#container, #user {
+    width: 80%;
+    margin: 5vh auto;
+}
+
+h1 {
+    text-align: center;
+}
+
+#headBand {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#way {
+    width: 70%;
+    height: 70%;
+}
+
+#cats {
+    width: 25%;
+}
+
+section {
+    border: 0.5vw solid black;
+    border-radius: 9px;
+}
+
+#user {
+    display: flex;
+}
+
+#chat {
+    display: flex;
+}
+
+#user, #chat, footer {
+    justify-content: space-around;
+    align-items: center;
+}
+
+button img {
+    width: 3vw;
+}
+
+#chat div {
+    height: 10vh;
+}
+
+#dialog, #online {
+    border: 1px dashed black;
+    margin: 1vh 0;
+    overflow: hidden;
+    overflow-scrolling: auto;
+}
+
+#dialog {
+    width: 65%;
+}
+
+#online {
+    width: 33%;
+}
+
+footer {
+    display: flex;
+}
+
+#message {
+    width: 50%;
+}
+
