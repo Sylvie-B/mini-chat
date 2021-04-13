@@ -9,6 +9,7 @@
 </head>
 <body>
     <div id="container">
+
         <header>
             <h1>Mini chat</h1>
             <div id="headBand">
@@ -17,13 +18,6 @@
             </div>
         </header>
         <section>
-            <div id="user">
-                <label for="pseudo">Entrez votre pseudo</label>
-                <input id="userPseudo" type="text" name="pseudo">
-                <button id="pseudo" type="submit">
-                    <img src="./img/paw01.png" title="Go" alt="paw">
-                </button>
-            </div>
             <div id="chat">
                 <div id="dialog">
             <!--          dialog display        -->
@@ -39,7 +33,18 @@
                     <img src="./img/paw01.png" title="miaou" alt="paw">
                 </button>
             </footer>
+
         </section>
+
+    </div>
+    <div id="modal">
+        <div id="user">
+            <label for="pseudo">Entrez votre pseudo</label>
+            <input id="userPseudo" type="text" name="pseudo">
+            <button id="pseudo" type="submit">
+                <img src="./img/paw01.png" title="Go" alt="paw">
+            </button>
+        </div>
     </div>
     <script src="app.js"></script>
 </body>

@@ -12,9 +12,9 @@ body {
     width: 100%;
 }
 
-#container, #user {
+#container {
     width: 80%;
-    margin: 5vh auto;
+    margin: auto;
 }
 
 h1 {
@@ -39,17 +39,19 @@ h1 {
 section {
     border: 0.5vw solid black;
     border-radius: 9px;
+    position: relative;
 }
 
 #user {
     display: flex;
+    background-color: green;
 }
 
 #chat {
     display: flex;
 }
 
-#user, #chat, footer {
+#user, #chat, footer, #modal {
     justify-content: space-around;
     align-items: center;
 }
@@ -77,11 +79,17 @@ button img {
     width: 33%;
 }
 
-footer {
+footer, #modal {
     display: flex;
 }
 
-#message {
-    width: 50%;
+#userMessage {
+    width: 95%;
+}
+
+#modal {
+    position: absolute;
+    top : 0;
+    background-color: #80808080;
 }
 
