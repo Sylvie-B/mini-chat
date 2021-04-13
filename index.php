@@ -19,7 +19,7 @@
         <section>
             <div id="user">
                 <label for="pseudo">Entrez votre pseudo</label>
-                <input type="text" name="pseudo">
+                <input id="userPseudo" type="text" name="pseudo">
                 <button id="pseudo" type="submit">
                     <img src="./img/paw01.png" title="Go" alt="paw">
                 </button>
@@ -34,8 +34,8 @@
                 </div>
             </div>
             <footer>
-                <input type="text" id="message" placeholder="votre message" name="userMessage">
-                <button id="converse" type="submit">
+                <input type="text" id="userMessage" placeholder="votre message" name="userMessage">
+                <button id="message" type="submit">
                     <img src="./img/paw01.png" title="miaou" alt="paw">
                 </button>
             </footer>
