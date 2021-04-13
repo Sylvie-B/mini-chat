@@ -1,27 +1,22 @@
-// recup user div, chat div
-// recup input userPseudo
-// recup button pseudo
-// recup input userMessage
-// recup button message
-// recup dialog
-let user = document.getElementById('user');
-let chat = document.getElementById('chat');
-let userPseudo = document.getElementById('userPseudo');
+// recup elements
+let modal = document.getElementById('modal');
 let btnPseudo = document.getElementById('pseudo');
+let userPseudo = document.getElementById('userPseudo');
+// give focus to pseudo
+userPseudo.focus();
+
 let userMessage = document.getElementById('userMessage');
 let btnMessage = document.getElementById('message');
 let dialog = document.getElementById('dialog');
 
 // button pseudo listener
-//   hidden user
-//   show chat
-//   show footer
+//   hidden modal
 //   recup pseudo value
+//      check & send to data base
 //      display pseudo in online
-//      send to data base
+
 btnPseudo.addEventListener('click', function (){
-    user.style.display = 'none';
-    chat.style.display = 'flex';
+    modal.style.display = 'none';
 })
 
 /**

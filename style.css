@@ -13,16 +13,19 @@ body {
 }
 
 #container {
-    width: 80%;
-    margin: auto;
+    border: 0.5vw solid black;
+    border-radius: 9px;
 }
 
 h1 {
     text-align: center;
 }
 
-#headBand {
+#headBand, #chat, footer, #modal, #user {
     display: flex;
+}
+
+#headBand {
     justify-content: space-between;
     align-items: center;
 }
@@ -36,22 +39,13 @@ h1 {
     width: 25%;
 }
 
-section {
-    border: 0.5vw solid black;
-    border-radius: 9px;
+section, header {
     position: relative;
+    width: 80%;
+    margin: auto;
 }
 
-#user {
-    display: flex;
-    background-color: green;
-}
-
-#chat {
-    display: flex;
-}
-
-#user, #chat, footer, #modal {
+#chat, footer {
     justify-content: space-around;
     align-items: center;
 }
@@ -60,11 +54,8 @@ button img {
     width: 3vw;
 }
 
-#chat div {
-    height: 10vh;
-}
-
 #dialog, #online {
+    height: 50vh;
     border: 1px dashed black;
     margin: 1vh 0;
     overflow: hidden;
@@ -79,17 +70,27 @@ button img {
     width: 33%;
 }
 
-footer, #modal {
-    display: flex;
-}
-
 #userMessage {
     width: 95%;
 }
 
 #modal {
     position: absolute;
-    top : 0;
-    background-color: #80808080;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border: 0.5vw solid black;
+    border-radius: 9px;
+    background-color: lightgray;
 }
 
+#user, #modal {
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 800px) {
+    #user {
+        flex-direction: column;
+    }
+}
