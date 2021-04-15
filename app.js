@@ -24,5 +24,4 @@ btnPseudo.addEventListener('click', function (){
  *   recup input dialogue
  *      display user and dialog
  *      send dialog to data base
- *
  */
