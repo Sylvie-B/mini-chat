@@ -21,7 +21,7 @@ h1 {
     text-align: center;
 }
 
-#headBand, #chat, footer, #modal, #user {
+#headBand, #chat, footer, #modal, #login {
     display: flex;
 }
 
@@ -82,15 +82,14 @@ button img {
     border: 0.5vw solid black;
     border-radius: 9px;
     background-color: lightgray;
-}
-
-#user, #modal {
     justify-content: center;
     align-items: center;
 }
 
-@media screen and (max-width: 800px) {
-    #user {
-        flex-direction: column;
-    }
+#login {
+    height: 30%;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-around;
 }
+

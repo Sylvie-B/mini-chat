@@ -17,6 +17,7 @@ let dialog = document.getElementById('dialog');
 
 btnPseudo.addEventListener('click', function (){
     modal.style.display = 'none';
+
 })
 
 /**

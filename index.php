@@ -34,9 +34,15 @@
                 </footer>
         </div>
         <div id="modal">
-            <div id="user">
-                <label for="pseudo">Entrez votre pseudo</label>
-                <input id="userPseudo" type="text" name="pseudo">
+            <div id="login">
+                <div>
+                    <label for="userPseudo">Pseudo</label>
+                    <input id="userPseudo" type="text" name="pseudo">
+                </div>
+                <div>
+                    <label for="password">mot de passe</label>
+                    <input id="password" type="text" name="password">
+                </div>
                 <button id="pseudo" type="submit">
                     <img src="./img/paw01.png" title="Go" alt="paw">
                 </button>
