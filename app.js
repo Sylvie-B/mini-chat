@@ -15,10 +15,6 @@ let dialog = document.getElementById('dialog');
 //      check & send to data base
 //      display pseudo in online
 
-btnPseudo.addEventListener('click', function (){
-    modal.style.display = 'none';
-
-})
 
 /**
  * button message listener

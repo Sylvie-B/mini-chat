@@ -21,7 +21,7 @@ h1 {
     text-align: center;
 }
 
-#headBand, #chat, footer, #modal, #login {
+#headBand, #chat, footer, #modal {
     display: flex;
 }
 
@@ -78,7 +78,6 @@ button img {
     position: absolute;
     top: 0;
     width: 100%;
-    height: 100%;
     border: 0.5vw solid black;
     border-radius: 9px;
     background-color: lightgray;
@@ -86,10 +85,10 @@ button img {
     align-items: center;
 }
 
-#login {
-    height: 30%;
+form {
+    height: 20vh;
+    display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: center;
     justify-content: space-around;
 }
-

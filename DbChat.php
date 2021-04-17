@@ -49,4 +49,16 @@ class DbChat
         }
         return $this->pdo;
     }
+
+    public function addUser (){
+        try{
+            $sql = "
+                INSERT INTO mini_chat.user (pseudo)
+                VALUES ('')
+            ";
+        }
+        catch (PDOException $exception) {
+            echo "add user error : ".$exception->getMessage();
+        }
+    }
 }

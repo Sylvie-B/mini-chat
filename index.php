@@ -16,25 +16,8 @@
         </div>
     </header>
     <section>
-        <div id="container">
-                <div id="chat">
-                    <div id="dialog">
-                        <!--          dialog display        -->
-                    </div>
-                    <div id="online">
-                        <span>Online cats :</span>
-                        <!--          user display          -->
-                    </div>
-                </div>
-                <footer>
-                    <input type="text" id="userMessage" placeholder="votre message" name="userMessage">
-                    <button id="message" type="submit">
-                        <img src="./img/paw01.png" title="miaou" alt="paw">
-                    </button>
-                </footer>
-        </div>
         <div id="modal">
-            <div id="login">
+            <form action="chat.php" method="post">
                 <div>
                     <label for="userPseudo">Pseudo</label>
                     <input id="userPseudo" type="text" name="pseudo">
@@ -43,14 +26,14 @@
                     <label for="password">mot de passe</label>
                     <input id="password" type="text" name="password">
                 </div>
-                <button id="pseudo" type="submit">
-                    <img src="./img/paw01.png" title="Go" alt="paw">
-                </button>
-            </div>
+                <div>
+                    <input id="pseudo" type="submit">
+                </div>
+            </form>
         </div>
     </section>
     <script src="app.js"></script>
 </body>
 </html>
 
-<?php
+
