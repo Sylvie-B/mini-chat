@@ -30,7 +30,6 @@
             </form>
         </div>
     </section>
-    <script src="app.js"></script>
 </body>
 </html>
 

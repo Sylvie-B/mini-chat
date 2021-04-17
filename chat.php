@@ -1,6 +1,6 @@
 <?php
     // insert DbChat for connexion
-    require 'DbChat.php';
+    require './DbChat.php';
     $pdo = new DbChat();
     $dbCo = $pdo->connect();
 
@@ -39,6 +39,8 @@
                     <!--          user display          -->
                     <?php
                     if (isset($_POST["pseudo"], $_POST["password"])) {
+
+                        $pdo->addUser($dbCo, $_POST["pseudo"], $_POST["password"]);
                         echo $_POST["pseudo"];
 
                     }
@@ -57,7 +59,7 @@
 </body>
 </html>
 
-<!--    todo send pseudo & password to db => create    -->
+<!--    send pseudo & password to db    -->
 <!--    recup online pseudo to display      -->
 <!--    send message to db       -->
 
