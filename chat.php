@@ -1,3 +1,11 @@
+<?php
+    // insert DbChat for connexion
+    require 'DbChat.php';
+    $pdo = new DbChat();
+    $dbCo = $pdo->connect();
+
+?>
+
 <!doctype html>
 <html lang="fr">
 <head>
@@ -9,21 +17,33 @@
 </head>
 <body>
 <header>
-    <h1>Mini chat</h1>
-    <div id="headBand">
-        <img id="way" src="./img/feetWay.png" alt="footprints path">
-        <img id="cats" src="./img/cats3.png" alt="three cats">
-    </div>
+    <?php
+    include "./headband.php";
+    ?>
 </header>
 <section>
     <div id="container">
         <div id="chat">
             <div id="dialog">
-                <!--          dialog display        -->
+                <span>Let's talk about cats ! :</span>
+                <div>
+                    <!--    display pseudo & message    -->
+                    <?php
+
+                    ?>
+                </div>
             </div>
             <div id="online">
                 <span>Online cats :</span>
-                <!--          user display          -->
+                <div>
+                    <!--          user display          -->
+                    <?php
+                    if (isset($_POST["pseudo"], $_POST["password"])) {
+                        echo $_POST["pseudo"];
+
+                    }
+                    ?>
+                </div>
             </div>
         </div>
         <footer>
@@ -37,8 +57,7 @@
 </body>
 </html>
 
-<?php
+<!--    todo send pseudo & password to db => create    -->
+<!--    recup online pseudo to display      -->
+<!--    send message to db       -->
 
-if (isset($_POST["pseudo"], $_POST["password"])){
-
-}

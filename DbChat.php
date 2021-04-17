@@ -7,7 +7,6 @@ class DbChat
     private string $db;
     private string $user;
     private string $password;
-    private ?PDO $pdo;
 
     /**
      * DbChat constructor.
@@ -16,18 +15,17 @@ class DbChat
      * @param $user
      * @param $password
      */
-    public function __construct($server, $db, $user, $password) {
-        $this->server = $server;
-        $this->db = $db;
-        $this->user = $user;
-        $this->password = $password;
-        $this->pdo = $this->connect();
+    public function __construct() {
+        $this->server ='localhost';
+        $this->db = 'mini_chat';
+        $this->user = 'root';
+        $this->password = '';
     }
 
     /**
      * @return PDO|null
      */
-    private function connect(): ?PDO
+    public function connect(): ?PDO
     {
         try {
             $dbCo = new PDO ("mysql:host=$this->server;dbname=$this->db;charset=utf8", $this->user, $this->password);
@@ -36,26 +34,19 @@ class DbChat
 
         } catch
         (PDOException $e) {
-            echo "Error" . $e->getMessage();
+            echo "Error : " . $e->getMessage();
             return null;
         }
         return $dbCo;
     }
 
-    public function getCo(): ?PDO
-    {
-        if(is_null($this->pdo)) {
-            $this->pdo = $this->connect();
-        }
-        return $this->pdo;
-    }
-
-    public function addUser (){
+    public function addUser ($pdo, string $pseudo, string $password){
         try{
             $sql = "
-                INSERT INTO mini_chat.user (pseudo)
-                VALUES ('')
+                INSERT INTO mini_chat.user (pseudo, password)
+                VALUES ('$pseudo', '$password')
             ";
+            return $pdo->exec($sql);
         }
         catch (PDOException $exception) {
             echo "add user error : ".$exception->getMessage();
