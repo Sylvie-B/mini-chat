@@ -40,11 +40,11 @@ class DbChat
         return $dbCo;
     }
 
-    public function addUser ($pdo, string $pseudo, string $password, bool $onLine){
+    public function addUser ($pdo, string $pseudo, string $password){
         try{
             $sql = "
-                INSERT INTO mini_chat.user (pseudo, password)
-                VALUES ('$pseudo', '$password')
+                INSERT INTO mini_chat.user (pseudo, password, onLine)
+                VALUES ('$pseudo', '$password', 1)
             ";
             return $pdo->exec($sql);
         }
