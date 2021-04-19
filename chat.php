@@ -39,28 +39,11 @@
                     <!--          user display          -->
                     <?php
                     if (isset($_POST["pseudo"], $_POST["password"])) {
-                        $ref = $_POST["pseudo"];
-
-                        $stmt = $dbCo->prepare("SELECT * FROM user WHERE pseudo='$ref'");
-                        $state = $stmt->execute();
-
-                        if($state) {
-                            switch (count($stmt->fetchAll())){
-                                case 0:
-                                    echo "utilisateur ajouté";
-                                    $pdo->addUser($dbCo, $_POST["pseudo"], $_POST["password"]);
-                                    break;
-                                case 1:
-                                    foreach ($stmt->fetchAll() as $user) {
-                                        echo "utilisateur trouvé : ".$user['pseudo'];
-                                    }
-                                    break;
-                            }
+                        $pdo->addUser($dbCo, $_POST['pseudo'], $_POST['password']);
                         }
                         else {
                             echo "une erreur est surnenue";
                         }
-                    }
                     ?>
                 </div>
             </div>
