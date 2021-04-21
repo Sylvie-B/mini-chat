@@ -1,7 +1,7 @@
 <?php
 
 
-class dialog
+class Dialog
 {
     private ?int $id;
     private ?string $message;
