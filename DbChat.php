@@ -58,11 +58,11 @@ class DbChat
                     case 1:
                         foreach ($stmt->fetchAll() as $user) {
                         // check user password
+
                         }
                         break;
                 }
             }
-
         }
         catch (PDOException $exception) {
             echo "add user error : ".$exception->getMessage();
