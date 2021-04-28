@@ -6,13 +6,11 @@ class User
     private ?int $id;
     private ?string $pseudo;
     private ?string $password;
-    private ?bool $online;
 
     public function __construct(int $id, string $pseudo, string $password, bool $online){
         $this->id = $id;
         $this->pseudo = $pseudo;
         $this->password = $password;
-        $this->online = $online;
     }
 
     /**
@@ -34,9 +32,10 @@ class User
     /**
      * @return string|null
      */
-    public function getPseudo(): ?string
+    public function getPseudo(int $id): ? User
     {
-        return $this->pseudo;
+
+
     }
 
     /**
@@ -63,20 +62,17 @@ class User
         $this->password = $password;
     }
 
-    /**
-     * @return bool|null
-     */
-    public function getOnline(): ?bool
-    {
-        return $this->online;
-    }
-
-    /**
-     * @param bool|null $online
-     */
-    public function setOnline(?bool $online): void
-    {
-        $this->online = $online;
+    public function addUser ($pdo, string $pseudo, string $password){
+        try{
+            $sql = "
+                INSERT INTO user (pseudo, password)
+                VALUES ('$pseudo', '$password')
+            ";
+            return $pdo->exec($sql);
+        }
+        catch (PDOException $exception) {
+            echo "add user error : ".$exception->getMessage();
+        }
     }
 
 }
