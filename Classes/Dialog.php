@@ -76,16 +76,19 @@ class Dialog
 
     public function getDialog($pdo): array {
         $dialog = [];
-        $search = $pdo->prepare("SELECT * FROM dialog");
+        $search = $pdo->prepare("
+            SELECT dialog.message, user.pseudo
+            FROM dialog
+            INNER JOIN user on dialog.user_fk = user.id
+            ");
         $state = $search->execute();
 
         if($state){
             foreach ($search->fetchAll as $text) {
                 // todo recup user
                 $dialog[][] = [
-                    'id_message' => $text['id_message'],
                     'message' => $text['message'],
-                    'user_fk' => $text['user_fk']
+                    'pseudo' => $text['pseudo']
                     ];
             }
         }
