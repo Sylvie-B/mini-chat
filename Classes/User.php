@@ -30,12 +30,13 @@ class User
     }
 
     /**
-     * @return string|null
+     * @param $pdo
+     * @param int $id
+     * @return User|null
      */
-    public function getPseudo(int $id): ? User
+    public function getPseudo($pdo, int $id): ? User
     {
-
-
+        return $pdo->prepare("SELECT pseudo FROM user WHERE id = '$id'");
     }
 
     /**
@@ -74,5 +75,4 @@ class User
             echo "add user error : ".$exception->getMessage();
         }
     }
-
 }
