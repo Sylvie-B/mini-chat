@@ -1,6 +1,6 @@
 <?php
 
-require "Classes/User.php";
+require "User.php";
 require "DbChat.php";
 
 class Dialog
@@ -71,7 +71,6 @@ class Dialog
         $search->bindParam(':message', $message);
         $search->bindParam('user', $user, PDO::PARAM_INT);
         $search->execute();
-
     }
 
     public function getDialog($pdo): array {
@@ -85,13 +84,11 @@ class Dialog
 
         if($state){
             foreach ($search->fetchAll as $text) {
-                // todo recup user
-                $dialog[][] = [
-                    'message' => $text['message'],
-                    'pseudo' => $text['pseudo']
-                    ];
+                $dialog[] = $text;
             }
         }
         return $dialog;
     }
+
+
 }

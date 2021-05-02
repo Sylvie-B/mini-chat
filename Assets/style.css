@@ -23,25 +23,22 @@ h1 {
 }
 
 #way {
-    width: 60%;
+    width: 45%;
 }
 
 #cats {
-    width: 20%;
+    width: 15%;
 }
 
-#headBand, #chat, footer, #modal {
+#headBand, #chat, footer, #button {
     display: flex;
     align-items: center;
 }
 
-#modal {
+.connexion {
     width: 80%;
     margin: auto;
-    border: 0.5vw solid black;
-    border-radius: 9px;
     background-color: lightgray;
-    justify-content: center;
 }
 
 form {
@@ -52,7 +49,16 @@ form {
     justify-content: space-around;
 }
 
-#container {
+#button {
+    width: 100%;
+    justify-content: space-around;
+}
+
+#frame {
+    display: none;
+}
+
+#container, .connexion {
     border: 0.5vw solid black;
     border-radius: 9px;
 }
@@ -61,7 +67,7 @@ form {
     justify-content: space-around;
 }
 
-button img {
+#message img {
     width: 3vw;
 }
 
@@ -84,4 +90,3 @@ button img {
 #userMessage {
     width: 95%;
 }
-

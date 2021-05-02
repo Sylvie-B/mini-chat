@@ -4,11 +4,12 @@ require $_SERVER['DOCUMENT_ROOT'] . '/DbChat.php';
 require $_SERVER['DOCUMENT_ROOT'] . '/Classes/User.php';
 require $_SERVER['DOCUMENT_ROOT'] . '/Classes/Dialog.php';
 
+header('Content-Type: application/json');
+
 $method = $_SERVER['REQUEST_METHOD'];
+$dialog = new Dialog();
 
-switch($method) {
-    case 'GET' :
-        if(isset ($_GET['id'])){
+$data = json_decode(file_get_contents('php://input'));
+if(isset($data->txt)){
 
-        }
 }

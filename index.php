@@ -1,12 +1,6 @@
 <?php
-/**
- * methode http     endpoint            action
- * GET              /api/message        display
- *
- * POST             /api/message        add
- */
+session_start();
 ?>
-
 <!doctype html>
 <html lang="fr">
 <head>
@@ -24,21 +18,25 @@
             <img id="cats" src="./img/cats3.png" alt="three cats">
         </div>
     </header>
-
-    <div id="modal">
-        <form>
-            <div>
-                <label for="userPseudo">Pseudo</label>
-                <input id="userPseudo" type="text" name="pseudo">
+    <div class="connexion">
+        <form method="post" action="index.php">
+            <div id="frame">
+                <div>
+                    <label for="userPseudo">Pseudo</label>
+                    <input id="userPseudo" type="text" name="pseudo">
+                </div>
+                <div>
+                    <label for="password">mot de passe</label>
+                    <input id="password" type="text" name="password">
+                </div>
+                <button id="signIn" type="submit">valider</button>
             </div>
-            <div>
-                <label for="password">mot de passe</label>
-                <input id="password" type="text" name="password">
-            </div>
-            <div>
-                <input id="login" type="submit" name="valider">
+            <div id="button">
+                <button class="btn" type="submit" name="connexion">Connexion</button>
+                <button class="btn" type="submit" name="inscription">Inscription</button>
             </div>
         </form>
+
     </div>
 
     <section>
@@ -58,7 +56,7 @@
                 </div>
             </div>
             <footer>
-            <input type="text" id="userMessage" placeholder="votre message" name="userMessage">
+                <input type="text" id="userMessage" placeholder="votre message" name="userMessage">
                 <button id="message" type="submit">
                     <img src="./img/paw01.png" title="miaou" alt="paw">
                 </button>
@@ -69,5 +67,14 @@
     <script src="Assets/app.js"></script>
 </body>
 </html>
+<?php
+
+if(isset($_POST['pseudo']) && $_POST['password']){
+    $pseudo = $_POST['pseudo'];
+    $passw = $_POST["password"];
+    $_SESSION["pseudo"] = $pseudo;
+    $_SESSION["password"] = $passw;
+}
+
 
 
