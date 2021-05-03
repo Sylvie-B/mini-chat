@@ -70,10 +70,12 @@ session_start();
 <?php
 
 if(isset($_POST['pseudo']) && $_POST['password']){
-    $pseudo = $_POST['pseudo'];
+    $pseudo = $_POST["pseudo"];
     $passw = $_POST["password"];
     $_SESSION["pseudo"] = $pseudo;
     $_SESSION["password"] = $passw;
+    $_SESSION["id"] = 1;
+
 }
 
 

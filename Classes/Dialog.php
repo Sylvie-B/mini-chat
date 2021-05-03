@@ -68,8 +68,8 @@ class Dialog
             INSERT INTO dialog (message, user_fk)
             VALUE ('$message', '$user')
             ");
-        $search->bindParam(':message', $message);
-        $search->bindParam('user', $user, PDO::PARAM_INT);
+        $search->bindParam(':message', strip_tags($message));
+        $search->bindParam('user', $_SESSION['id'], PDO::PARAM_INT);
         $search->execute();
     }
 

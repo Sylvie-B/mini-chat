@@ -22,11 +22,12 @@ for(let i = 0 ; i < btn.length ; i++){
 }
 
 // btn message listener
-message.addEventListener('click', function (e){
-    e.preventDefault();
+message.addEventListener('click', function (){
     const txt = document.getElementById('userMessage').value;
+    // send message to api
     if(txt){
        let xhr = new XMLHttpRequest();
+
        const userTxt = {
            'message': txt
        }
@@ -36,7 +37,6 @@ message.addEventListener('click', function (e){
     }
 })
 
-// send message to dataBase
 // display each users names & new messages
 //
 // todo function userExist
