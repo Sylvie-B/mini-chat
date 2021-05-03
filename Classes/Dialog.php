@@ -1,7 +1,7 @@
 <?php
 
-require "User.php";
-require "DbChat.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Classes/User.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/DbChat.php';
 
 class Dialog
 {
@@ -71,6 +71,7 @@ class Dialog
         $search->bindParam(':message', strip_tags($message));
         $search->bindParam('user', $_SESSION['id'], PDO::PARAM_INT);
         $search->execute();
+        return intval($pdo->lastInsertId());
     }
 
     public function getDialog($pdo): array {

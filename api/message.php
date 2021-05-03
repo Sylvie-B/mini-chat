@@ -1,8 +1,8 @@
 <?php
 
-require $_SERVER['DOCUMENT_ROOT'] . '/DbChat.php';
-require $_SERVER['DOCUMENT_ROOT'] . '/Classes/User.php';
-require $_SERVER['DOCUMENT_ROOT'] . '/Classes/Dialog.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/DbChat.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Classes/User.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Classes/Dialog.php';
 
 header('Content-Type: application/json');
 

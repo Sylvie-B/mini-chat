@@ -3,7 +3,8 @@ let btn = document.getElementsByClassName('btn');
 let frame = document.getElementById('frame');
 let button = document.getElementById('button');
 let message = document.getElementById('message');
-
+let usersTxt = document.getElementById('usersTxt');
+let name = document.getElementById('name');
 
 for(let i = 0 ; i < btn.length ; i++){
     btn[i].addEventListener("click", function (e) {
@@ -31,7 +32,7 @@ message.addEventListener('click', function (){
        const userTxt = {
            'message': txt
        }
-       xhr.open('POST', '/api/message');
+       xhr.open('POST', '/api/message.php');
        xhr.setRequestHeader('Content-Type', 'application/json');
        xhr.send(JSON.stringify(userTxt));
     }
