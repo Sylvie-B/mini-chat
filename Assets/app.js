@@ -6,6 +6,9 @@ let btnMessage = document.getElementById('btnMessage');
 let usersTxt = document.getElementById('usersTxt');
 let name = document.getElementById('name');
 
+// display all messages every seconds
+setInterval(displayDialog, 1000);
+
 // btn message listener
 btnMessage.addEventListener('click', function (){
 
@@ -29,6 +32,3 @@ function displayDialog (){
     xhrTxt.send();
 }
 
-displayDialog();
-
-// setInterval(displayDialog, 1000);

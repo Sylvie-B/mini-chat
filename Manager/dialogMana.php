@@ -9,7 +9,7 @@ class dialogMana
         $this->pdo = $pdo;
     }
 
-    public function addMessage(string $message, int $user_fk): bool {
+    public function addMessage(string $message, ?int $user_fk): bool {
         $search = $this->pdo->prepare("
             INSERT INTO dialog (message, user_fk) VALUE (:message, :user_fk)
         ");
@@ -19,7 +19,6 @@ class dialogMana
         $search->execute();
         return $this->pdo->lastInsertId();
     }
-
 
     public function getDialog(): array {
         $allDialog = [];

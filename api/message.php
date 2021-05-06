@@ -1,9 +1,7 @@
 <?php
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/Classes/Dialog.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/Classes/User.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/Manager/dialogMana.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/Manager/userMana.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/DbChat.php';
 
 $db = new DbChat();
@@ -21,5 +19,7 @@ foreach ($allDialog as $message){
 }
 
 echo json_encode($response);
+
+
 
 exit;
