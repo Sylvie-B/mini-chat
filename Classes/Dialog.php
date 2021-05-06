@@ -7,12 +7,12 @@ class Dialog
 {
     private ?int $id;
     private ?string $message;
-    private ?User $user;
+    private ?int $user_fk;
 
-    public function __construct(int $id = null, string $message = null, int $user = null){
+    public function __construct(int $id = null, string $message = null, int $user_fk = null){
         $this->id = $id;
         $this->message = $message;
-        $this->user = $user;
+        $this->user_fk = $user_fk;
     }
 
     /**
@@ -48,19 +48,19 @@ class Dialog
     }
 
     /**
-     * @return User|null
+     * @return int|null
      */
-    public function getUser(): ?User
+    public function getUser(): ?int
     {
-        return $this->user;
+        return $this->user_fk;
     }
 
     /**
-     * @param User|null $user
+     * @param int|null $user_fk
      */
-    public function setUser(?User $user): void
+    public function setUser(?int $user_fk): void
     {
-        $this->user = $user;
+        $this->user_fk = $user_fk;
     }
 
 }

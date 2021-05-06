@@ -13,7 +13,7 @@ for(let i = 0 ; i < btn.length ; i++){
         button.style.display = 'none';
         switch (i){
             case 0 :    // connexion
-
+                    
                 break;
             case 1 :    // inscription
 

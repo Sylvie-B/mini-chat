@@ -75,8 +75,6 @@ if(isset($_POST['pseudo']) && $_POST['password']){
     $passw = $_POST["password"];
     $_SESSION["pseudo"] = $pseudo;
     $_SESSION["password"] = $passw;
-    $_SESSION["id"] = 1;
-
 }
 
 

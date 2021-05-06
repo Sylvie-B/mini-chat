@@ -7,7 +7,7 @@ class User
     private ?string $pseudo;
     private ?string $password;
 
-    public function __construct(int $id, string $pseudo, string $password, bool $online){
+    public function __construct(int $id, string $pseudo, string $password){
         $this->id = $id;
         $this->pseudo = $pseudo;
         $this->password = $password;
@@ -30,13 +30,11 @@ class User
     }
 
     /**
-     * @param $pdo
-     * @param int $id
-     * @return User|null
+     * @return string|null
      */
-    public function getPseudo($pdo, int $id): ? User
+    public function getPseudo(): ?string
     {
-        return $pdo->prepare("SELECT pseudo FROM user WHERE id = '$id'");
+        return $this->pseudo;
     }
 
     /**
@@ -62,5 +60,6 @@ class User
     {
         $this->password = $password;
     }
+
 
 }
