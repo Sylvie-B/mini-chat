@@ -67,8 +67,8 @@ form {
     justify-content: space-around;
 }
 
-#btnMessage img {
-    width: 3vw;
+#btnMessage {
+    width: 4vw;
 }
 
 #dialog {

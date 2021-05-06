@@ -13,7 +13,7 @@ $mana = new dialogMana($db);
 // receive json from app.js
 $data = json_decode(file_get_contents('php://input'));
 if(isset($data->message)){
-    $new = $mana->addMessage($data->message, null);
+    $new = $mana->addMessage($data->message, 1);
     if(!$new){
         echo 'une erreur est survenue';
     }

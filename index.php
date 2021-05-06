@@ -48,8 +48,8 @@
             </div>
             <footer>
                 <input type="text" id="userMessage" placeholder="votre message" name="userMessage">
-                <button id="btnMessage" type="submit">
-                    <img src="./img/paw01.png" title="miaou" alt="paw">
+                <button  type="submit">
+                    <img id="btnMessage" src="./img/paw01.png" title="miaou" alt="paw">
                 </button>
             </footer>
         </div>

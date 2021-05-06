@@ -4,7 +4,6 @@
 class dialogMana
 {
     private PDO $pdo;
-    private userMana $user;
 
     public function __construct($pdo) {
         $this->pdo = $pdo;
