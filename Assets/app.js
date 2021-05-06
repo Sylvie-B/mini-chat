@@ -7,32 +7,32 @@ let usersTxt = document.getElementById('usersTxt');
 let name = document.getElementById('name');
 
 // display all messages every seconds
-setInterval(displayDialog, 10000);
+setInterval(displayDialog, 5000);
 
 // btn message listener
-btnMessage.addEventListener('click', function (){
-    // get user new message
-    const userSay = document.getElementById('userMessage').value;
-    // get user pseudo or id ?
-
-    if(!userSay){
-        alert('veuillez entrer votre message');
-    }
-    else {
-        const xhr = new XMLHttpRequest();
-        xhr.onload = function (){
-            let data = JSON.parse(xhr.responseText);
-            if(!data){
-                alert("erreur lors de l'envoi du message");
-            }
-        }
-        let userText = {
-            'message': userSay
-        }
-        xhr.open('POST', '/api/message.php');
-        xhr.send(JSON.stringify(userText));
-    }
-})
+// btnMessage.addEventListener('click', function (){
+//     // get user new message
+//     const userSay = document.getElementById('userMessage').value;
+//     // get user pseudo or id ?
+//
+//     if(!userSay){
+//         alert('veuillez entrer votre message');
+//     }
+//     else {
+//         const xhr = new XMLHttpRequest();
+//         xhr.onload = function (){
+//             let data = JSON.parse(xhr.responseText);
+//             if(!data){
+//                 alert("erreur lors de l'envoi du message");
+//             }
+//         }
+//         let userText = {
+//             'message': userSay
+//         }
+//         xhr.open('POST', '/api/sendMessage.php');
+//         xhr.send(JSON.stringify(userText));
+//     }
+// })
 
 // api message send id_message, message, user_fk
 // get message function to display
@@ -48,7 +48,7 @@ function displayDialog (){
             usersTxt.append(line);
         }
     }
-    xhrTxt.open('GET', '/api/dialog.php');
+    xhrTxt.open('GET', '/api/getMessage.php');
     xhrTxt.send();
 }
 

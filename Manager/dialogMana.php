@@ -8,11 +8,9 @@ class dialogMana
 
     public function __construct($pdo) {
         $this->pdo = $pdo;
-        $this->user = new userMana($this->pdo);
     }
 
     public function addMessage(string $message, ?int $user_fk): bool {
-        $pseudo = $this->user->getPseudo($user_fk);
         $search = $this->pdo->prepare("
             INSERT INTO dialog (message, user_fk) VALUE (:message, :user_fk)
         ");
