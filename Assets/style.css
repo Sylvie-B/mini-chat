@@ -71,16 +71,13 @@ form {
     width: 3vw;
 }
 
-#dialog, #online {
+#dialog {
+    width: 95%;
     height: 42vh;
     border: 1px dashed black;
     margin: 1vh 0;
     overflow: hidden;
     overflow-scrolling: auto;
-}
-
-#dialog {
-    width: 65%;
 }
 
 #online {

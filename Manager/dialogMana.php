@@ -3,31 +3,36 @@
 
 class dialogMana
 {
-    public function addMessage($pdo, string $message, int $user): bool{
-        $search = $pdo->prepare("
-            INSERT INTO dialog (message, user_fk)
-            VALUE ('$message', '$user')
-            ");
-        $search->bindParam(':message', strip_tags($message));
-        $search->bindParam('user', $_SESSION['id'], PDO::PARAM_INT);
-        $search->execute();
-        return intval($pdo->lastInsertId());
+    private PDO $pdo;
+
+    public function __construct($pdo) {
+        $this->pdo = $pdo;
     }
 
-    public function getDialog($pdo): array {
-        $dialog = [];
-        $search = $pdo->prepare("
-            SELECT dialog.message, user.pseudo
-            FROM dialog
-            INNER JOIN user on dialog.user_fk = user.id
-            ");
+    public function addMessage(string $message, int $user_fk): bool {
+        $search = $this->pdo->prepare("
+            INSERT INTO dialog (message, user_fk) VALUE (:message, :user_fk)
+        ");
+
+        $search->bindValue(':message', strip_tags($message));
+        $search->bindValue(':user_fk', $user_fk,PDO::PARAM_INT);
+        $search->execute();
+        return $this->pdo->lastInsertId();
+    }
+
+
+    public function getDialog(): array {
+        $allDialog = [];
+        $search = $this->pdo->prepare("SELECT * FROM dialog");
         $state = $search->execute();
 
         if($state){
-            foreach ($search->fetchAll as $text) {
-                $dialog[] = $text;
+            $data = $search->fetchAll();
+            foreach ($data as $txt) {
+                // get pseudo
+                $allDialog[] = new Dialog($txt['id_message'],$txt['message'], $txt['user_fk']);
             }
         }
-        return $dialog;
+        return $allDialog;
     }
 }

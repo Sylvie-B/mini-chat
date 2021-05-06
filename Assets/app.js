@@ -2,44 +2,33 @@
 let btn = document.getElementsByClassName('btn');
 let frame = document.getElementById('frame');
 let button = document.getElementById('button');
-let message = document.getElementById('message');
+let btnMessage = document.getElementById('btnMessage');
 let usersTxt = document.getElementById('usersTxt');
 let name = document.getElementById('name');
 
-for(let i = 0 ; i < btn.length ; i++){
-    btn[i].addEventListener("click", function (e) {
-        e.preventDefault();
-        frame.style.display = 'flex';
-        button.style.display = 'none';
-        switch (i){
-            case 0 :    // connexion
-                    
-                break;
-            case 1 :    // inscription
-
-                break;
-        }
-    })
-}
-
 // btn message listener
-message.addEventListener('click', function (){
-    const txt = document.getElementById('userMessage').value;
-    // send message to api
-    if(txt){
-       let xhr = new XMLHttpRequest();
+btnMessage.addEventListener('click', function (){
 
-       const userTxt = {
-           'message': txt
-       }
-       xhr.open('POST', '/api/message.php');
-       xhr.setRequestHeader('Content-Type', 'application/json');
-       xhr.send(JSON.stringify(userTxt));
-    }
 })
 
-// display each users names & new messages
-//
-// todo function userExist
-// todo function checkPass
-//
+// api message send id_message, message, user_fk
+// get message function to display
+function displayDialog (){
+    const xhrTxt = new XMLHttpRequest();
+    xhrTxt.onload = function (){
+        usersTxt.innerHTML = '';
+        let data = JSON.parse(xhrTxt.responseText);
+        console.log(data);
+        for(let i = 0 ; i < data.length; i++){
+            let line = document.createElement('p');
+            line.innerHTML = data[i].user_fk + " : " + data[i].message;
+            usersTxt.append(line);
+        }
+    }
+    xhrTxt.open('GET', '/api/message.php');
+    xhrTxt.send();
+}
+
+displayDialog();
+
+// setInterval(displayDialog, 1000);

@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!doctype html>
 <html lang="fr">
 <head>
@@ -48,16 +45,10 @@ session_start();
                         <!--    display pseudo : message    -->
                     </div>
                 </div>
-                <div id="online">
-                    <span>Online cats :</span>
-                    <div id="name">
-                        <!--          online user display          -->
-                    </div>
-                </div>
             </div>
             <footer>
                 <input type="text" id="userMessage" placeholder="votre message" name="userMessage">
-                <button id="message" type="submit">
+                <button id="btnMessage" type="submit">
                     <img src="./img/paw01.png" title="miaou" alt="paw">
                 </button>
             </footer>
@@ -68,14 +59,3 @@ session_start();
     <script src="Assets/app.js"></script>
 </body>
 </html>
-<?php
-
-if(isset($_POST['pseudo']) && $_POST['password']){
-    $pseudo = $_POST["pseudo"];
-    $passw = $_POST["password"];
-    $_SESSION["pseudo"] = $pseudo;
-    $_SESSION["password"] = $passw;
-}
-
-
-

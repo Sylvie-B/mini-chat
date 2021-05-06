@@ -1,16 +1,13 @@
 <?php
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/Classes/User.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/DbChat.php';
-
 class Dialog
 {
-    private ?int $id;
+    private ?int $id_message;
     private ?string $message;
     private ?int $user_fk;
 
-    public function __construct(int $id = null, string $message = null, int $user_fk = null){
-        $this->id = $id;
+    public function __construct(int $id_message = null, string $message = null, int $user_fk = null){
+        $this->id_message = $id_message;
         $this->message = $message;
         $this->user_fk = $user_fk;
     }
@@ -18,17 +15,17 @@ class Dialog
     /**
      * @return int|null
      */
-    public function getId(): ?int
+    public function getIdMessage(): ?int
     {
-        return $this->id;
+        return $this->id_message;
     }
 
     /**
-     * @param int|null $id
+     * @param int|null $id_message
      */
-    public function setId(?int $id): void
+    public function setIdMessage(?int $id_message): void
     {
-        $this->id = $id;
+        $this->id_message = $id_message;
     }
 
     /**
@@ -50,7 +47,7 @@ class Dialog
     /**
      * @return int|null
      */
-    public function getUser(): ?int
+    public function getUserFk(): ?int
     {
         return $this->user_fk;
     }
@@ -58,9 +55,10 @@ class Dialog
     /**
      * @param int|null $user_fk
      */
-    public function setUser(?int $user_fk): void
+    public function setUserFk(?int $user_fk): void
     {
         $this->user_fk = $user_fk;
     }
+
 
 }
