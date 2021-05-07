@@ -14,18 +14,19 @@ btnMessage.addEventListener('click', function (){
     // get user new message
     const userSay = document.getElementById('userMessage').value;
     // get user pseudo or id ?
-
     if(!userSay){
         alert('veuillez entrer votre message');
     }
     else {
         const xhr = new XMLHttpRequest();
         xhr.onload = function (){
+            console.log(xhr.responseText);
             let data = JSON.parse(xhr.responseText);
             console.log(data);
         }
         let userText = {
-            'message': userSay
+            'message': userSay,
+            'user_fk': 1
         }
         xhr.open('POST', '/api/sendMessage.php');
         xhr.send(JSON.stringify(userText));

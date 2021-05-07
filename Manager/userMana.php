@@ -4,7 +4,7 @@
 class userMana
 {
     private PDO $pdo;
-    private User $User;
+
 
     public function __construct($pdo) {
         $this->pdo = $pdo;

@@ -13,11 +13,10 @@ class dialogMana
         $search = $this->pdo->prepare("
             INSERT INTO dialog (message, user_fk) VALUE (:message, :user_fk)
         ");
-
         $search->bindValue(':message', strip_tags($message));
         $search->bindValue(':user_fk', $user_fk,PDO::PARAM_INT);
         $search->execute();
-        return $this->pdo->lastInsertId();
+        return $this->pdo->lastInsertId() !== 0;
     }
 
     public function getDialog(): array {
