@@ -8,23 +8,25 @@ $db = new DbChat();
 $db = $db->connect();
 $mana = new dialogMana($db);
 
-echo 'ici';
+
 // receive json from app.js
 $data = json_decode(file_get_contents('php://input'), true);
-$response[] = "";
-if(isset($data->message, $data->user_fk)){
-    $newMessage = $mana->addMessage($data->message, $data->user_fk);
-    if(!$newMessage){
-        $response = [
-            'info' => 'error'
-        ];
-    }
-    else{
-        $response = [
-            'info' => 'new message'
-        ];
+if (isset($data)) {
+    $text = $data['message'];
+    $user = $data['user_fk'];
+    $response = [
+        'info' => "vous avez le message : " . $text . "de la part de : " . $user
+    ];
+    $ref = $mana->addMessage($text, $user);
+    if(!$ref){
+        $response = ['info' => "add message error"];
     }
 
 }
+else {
+    $response = ['info' => "error json decode"];
+}
+
 echo json_encode($response);
+
 exit;
