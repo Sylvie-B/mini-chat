@@ -1,13 +1,19 @@
-// get elements
-let btnMessage = document.getElementById('btnMessage');
+// display all users messages
 let usersTxt = document.getElementById('usersTxt');
+// input & valid message
+let userMessage = document.getElementById('userMessage');
+let btnMessage = document.getElementById('btnMessage');
 
+// give focus
+userMessage.focus();
 // display all messages every seconds
-setInterval(displayDialog, 5000);
+setInterval(displayDialog, 1000);
 
 // btn message listener
 btnMessage.addEventListener('click', function (){
    newMessage();
+    userMessage.value = '';
+    userMessage.focus();
 })
 
 // api message send id_message, message, user_fk
@@ -17,7 +23,6 @@ function displayDialog (){
     xhrTxt.onload = function (){
         usersTxt.innerHTML = '';
         let data = JSON.parse(xhrTxt.responseText);
-        console.log(data);
         for(let i = 0 ; i < data.length; i++){
             let line = document.createElement('p');
             line.innerHTML = data[i].user_fk + " : " + data[i].message;
@@ -30,7 +35,7 @@ function displayDialog (){
 
 function newMessage () {
     // get user new message
-    const userSay = document.getElementById('userMessage').value;
+    const userSay = userMessage.value;
     // to do get user pseudo or id ?
 
     if(!userSay){
@@ -40,7 +45,6 @@ function newMessage () {
         const xhr = new XMLHttpRequest();
         xhr.onload = function (){
             let text = JSON.parse(xhr.responseText);
-            console.log(text.info);
         }
         let userText = {
             'message': userSay,
@@ -49,4 +53,5 @@ function newMessage () {
         xhr.open('POST', '/api/sendMessage.php');
         xhr.send(JSON.stringify(userText));
     }
+
 }

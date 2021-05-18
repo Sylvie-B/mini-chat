@@ -15,7 +15,7 @@ if (isset($data)) {
     $text = $data['message'];
     $user = $data['user_fk'];
     $response = [
-        'info' => "vous avez le message : " . $text . "de la part de : " . $user
+        'info' => "vous avez le message : " . $text . " de la part de : " . $user
     ];
     $ref = $mana->addMessage($text, $user);
     if(!$ref){

@@ -33,9 +33,7 @@
                 <button class="btn" type="submit" name="inscription">Inscription</button>
             </div>
         </form>
-
     </div>
-
     <section>
         <div id="container">
             <div id="chat">
